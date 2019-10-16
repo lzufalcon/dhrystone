@@ -1,0 +1,8 @@
+= Dhrystone
+
+Initially obtained with:
+
+....
+wget http://www.netlib.org/benchmark/dhry-c
+bash dhry-c
+....
