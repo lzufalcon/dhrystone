@@ -28,7 +28,9 @@ char            Ch_1_Glob,
 int             Arr_1_Glob [50];
 int             Arr_2_Glob [50] [50];
 
+#ifndef NO_PROTOTYPES
 extern char     *malloc ();
+#endif
 Enumeration     Func_1 ();
   /* forward declaration necessary since Enumeration may not simply be int */
 
@@ -45,14 +47,18 @@ Enumeration     Func_1 ();
 
 #ifdef TIMES
 struct tms      time_info;
+#ifndef NO_PROTOTYPES
 extern  int     times ();
                 /* see library function "times" */
+#endif
 #define Too_Small_Time 120
                 /* Measurements should last at least about 2 seconds */
 #endif
 #ifdef TIME
+#ifndef NO_PROTOTYPES
 extern long     time();
                 /* see library function "time"  */
+#endif
 #define Too_Small_Time 2
                 /* Measurements should last at least 2 seconds */
 #endif
