@@ -1,5 +1,24 @@
 = Dhrystone
 
+Build and run:
+
+....
+make
+./dhrystone
+....
+
+Control the number of runs from CLI:
+
+....
+make 1000
+....
+
+Control the number of runs at compile time for baremetal setups without command line arguments:
+
+....
+make NUMBER_OF_RUNS=1000
+....
+
 Initially obtained with:
 
 ....
