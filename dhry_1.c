@@ -75,8 +75,13 @@ float           Microseconds,
 
 /* end of variables for time measurement */
 
+void Proc_1 ();
+void Proc_2 ();
+void Proc_3 ();
+void Proc_4 ();
+void Proc_5 ();
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 /*****/
 
   /* main program, corresponds to procedures        */
@@ -221,7 +226,7 @@ main(int argc, char *argv[])
   printf ("Arr_2_Glob[8][7]:    %d\n", Arr_2_Glob[8][7]);
   printf ("        should be:   Number_Of_Runs + 10\n");
   printf ("Ptr_Glob->\n");
-  printf ("  Ptr_Comp:          %d\n", (int) Ptr_Glob->Ptr_Comp);
+  printf ("  Ptr_Comp:          %p\n", (void *)Ptr_Glob->Ptr_Comp);
   printf ("        should be:   (implementation-dependent)\n");
   printf ("  Discr:             %d\n", Ptr_Glob->Discr);
   printf ("        should be:   %d\n", 0);
@@ -232,7 +237,7 @@ main(int argc, char *argv[])
   printf ("  Str_Comp:          %s\n", Ptr_Glob->variant.var_1.Str_Comp);
   printf ("        should be:   DHRYSTONE PROGRAM, SOME STRING\n");
   printf ("Next_Ptr_Glob->\n");
-  printf ("  Ptr_Comp:          %d\n", (int) Next_Ptr_Glob->Ptr_Comp);
+  printf ("  Ptr_Comp:          %p\n", (void *)Next_Ptr_Glob->Ptr_Comp);
   printf ("        should be:   (implementation-dependent), same as above\n");
   printf ("  Discr:             %d\n", Next_Ptr_Glob->Discr);
   printf ("        should be:   %d\n", 0);
@@ -287,7 +292,7 @@ main(int argc, char *argv[])
 }
 
 
-Proc_1 (Ptr_Val_Par)
+void Proc_1 (Ptr_Val_Par)
 /******************/
 
 REG Rec_Pointer Ptr_Val_Par;
@@ -321,7 +326,7 @@ REG Rec_Pointer Ptr_Val_Par;
 } /* Proc_1 */
 
 
-Proc_2 (Int_Par_Ref)
+void Proc_2 (Int_Par_Ref)
 /******************/
     /* executed once */
     /* *Int_Par_Ref == 1, becomes 4 */
@@ -344,7 +349,7 @@ One_Fifty   *Int_Par_Ref;
 } /* Proc_2 */
 
 
-Proc_3 (Ptr_Ref_Par)
+void Proc_3 (Ptr_Ref_Par)
 /******************/
     /* executed once */
     /* Ptr_Ref_Par becomes Ptr_Glob */
@@ -359,7 +364,7 @@ Rec_Pointer *Ptr_Ref_Par;
 } /* Proc_3 */
 
 
-Proc_4 () /* without parameters */
+void Proc_4 () /* without parameters */
 /*******/
     /* executed once */
 {
@@ -371,7 +376,7 @@ Proc_4 () /* without parameters */
 } /* Proc_4 */
 
 
-Proc_5 () /* without parameters */
+void Proc_5 () /* without parameters */
 /*******/
     /* executed once */
 {

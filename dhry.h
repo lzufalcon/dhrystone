@@ -422,4 +422,9 @@ typedef struct record
           } variant;
       } Rec_Type, *Rec_Pointer;
 
-
+Enumeration Func_1 ();
+Boolean Func_2 ();
+Boolean Func_3 ();
+void Proc_6 ();
+void Proc_7 ();
+void Proc_8 ();
