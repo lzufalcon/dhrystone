@@ -4,7 +4,7 @@ LDLIBS += -lm
 OUT_DIR = .
 OUT = $(OUT_DIR)/dhrystone
 
-all: mkdir $(OUT)
+all: $(OUT_DIR) $(OUT)
 
 $(OUT): $(OUT_DIR)/dhry_1.o $(OUT_DIR)/dhry_2.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o '$@' $^ $(LDLIBS)
@@ -15,7 +15,7 @@ $(OUT_DIR)/%.o: %.c
 clean:
 	rm -f '$(OUT_DIR)/'*.o '$(OUT_DIR)/dhrystone'
 
-mkdir:
+$(OUT_DIR):
 	mkdir -p '$(OUT_DIR)'
 
-.PHONY: all clean mkdir
+.PHONY: all clean
