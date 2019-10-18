@@ -19,6 +19,10 @@
 
 /* Global Variables: */
 
+#ifndef NUMBER_OF_RUNS
+#define NUMBER_OF_RUNS 1000
+#endif
+
 Rec_Pointer     Ptr_Glob,
                 Next_Ptr_Glob;
 int             Int_Glob;
@@ -107,7 +111,7 @@ main(int argc, char *argv[])
         /* Warning: With 16-Bit processors and Number_Of_Runs > 32000,  */
         /* overflow may occur for this array element.                   */
 
-  Number_Of_Runs = 0;
+  Number_Of_Runs = NUMBER_OF_RUNS;
   if ( argc == 2 ) {
       if (atoi(argv[1]) > 0) {
           Number_Of_Runs = atoi(argv[1]);
@@ -126,17 +130,6 @@ main(int argc, char *argv[])
   {
     printf ("Program compiled without 'register' attribute\n");
     printf ("\n");
-  }
-
-  if (!Number_Of_Runs) {
-      printf ("Please give the number of runs through the benchmark: ");
-      fflush (stdout);
-      {
-          int n;
-          scanf ("%d", &n);
-          Number_Of_Runs = n;
-      }
-      printf ("\n");
   }
 
   printf ("Execution starts, %d runs through Dhrystone\n", Number_Of_Runs);
